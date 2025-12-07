@@ -1,0 +1,13 @@
+
+config.py
+tools/__pycache__/paper_search_tool.cpython-312.pyc
+tools/__pycache__/code_executor.cpython-312.pyc
+agents/__pycache__/research_agent.cpython-312.pyc
+agents/__pycache__/evaluator_agent.cpython-312.pyc
+agents/__pycache__/code_agent.cpython-312.pyc
+__pycache__/config.cpython-312.pyc
+.cache/42/cache.db
+.idea/ScientificResearchAssistantAgent.iml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
