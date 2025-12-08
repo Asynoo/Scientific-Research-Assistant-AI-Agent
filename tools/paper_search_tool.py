@@ -1,6 +1,5 @@
-from typing import List, TypedDict
-
 import requests
+from typing import List, TypedDict
 
 
 class ResearchPaper(TypedDict):
@@ -14,51 +13,43 @@ class ResearchPaper(TypedDict):
 SEMANTIC_SCHOLAR_SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
 
 
-def search_papers(topic: str, year_filter: str = None, year: int = None, citation_filter: str = None,
-                  citation_count: int = 0) -> List[ResearchPaper]:
+def search_papers(topic: str, year_filter: str = None, year: int = None,
+                  end_year: int = None, min_citations: int = 0) -> List[ResearchPaper]:
     params = {
         "query": topic,
-        "limit": 20,
+        "limit": 30,
         "fields": "title,authors,year,citationCount,url"
     }
 
     try:
-        resp = requests.get(SEMANTIC_SCHOLAR_SEARCH_URL, params=params, timeout=10)
-        resp.raise_for_status()
-        data = resp.json().get("data", [])
+        r = requests.get(SEMANTIC_SCHOLAR_SEARCH_URL, params=params, timeout=10)
+        r.raise_for_status()
+        data = r.json().get("data", [])
     except Exception:
         return []
 
-    filtered = []
+    out = []
     for p in data:
-        try:
-            py = p.get("year")
-            pc = p.get("citationCount", 0)
+        py = p.get("year")
+        citations = p.get("citationCount", 0)
 
-            if year_filter == "in" and py != year:
-                continue
-            if year_filter == "before" and (py is not None and py >= year):
-                continue
-            if year_filter == "after" and (py is not None and py <= year):
+        if year_filter == "after" and (py is None or py <= year):
+            continue
+        elif year_filter == "range" and py is not None:
+            if not (year <= py <= (end_year or 2024)):
                 continue
 
-            if citation_filter == "exactly" and pc != citation_count:
-                continue
-            if citation_filter == "at least" and pc < citation_count:
-                continue
-            if citation_filter == "at most" and pc > citation_count:
-                continue
-
-            authors = [a.get("name", "") for a in p.get("authors", [])]
-
-            filtered.append({
-                "title": p.get("title", "Unknown"),
-                "authors": authors,
-                "year": py or 0,
-                "citation_count": pc,
-                "url": p.get("url", "")
-            })
-        except Exception:
+        if min_citations > 0 and citations < min_citations:
             continue
 
-    return filtered
+        authors = [a.get("name", "") for a in p.get("authors", [])]
+
+        out.append({
+            "title": p.get("title", "Unknown"),
+            "authors": authors,
+            "year": py or 0,
+            "citation_count": citations,
+            "url": p.get("url", "")
+        })
+
+    return out

@@ -6,18 +6,25 @@ from tools.paper_search_tool import search_papers
 
 def create_research_agent():
     system_msg = (
-        "You are a precise research paper finding agent.\n"
-        "INSTRUCTIONS:\n"
-        "- Call the tool 'search_papers' exactly ONCE per request.\n"
-        "- After receiving the tool response, OUTPUT ONLY valid JSON (no markdown, no extra text).\n"
-        "Output schema EXACTLY:\n"
+        "You are a precise research paper agent.\n"
+        "You MUST call the tool 'search_papers' exactly once.\n"
+        "CRITICAL FILTERING RULES:\n"
+        "1. When you receive papers from the tool, FILTER them to keep ONLY papers that meet ALL constraints:\n"
+        "   - Year > 2017 (or whatever the user specifies)\n"
+        "   - Citation count >= 100 (or whatever the user specifies)\n"
+        "2. Return EXACTLY 5 papers that meet these criteria.\n"
+        "3. If fewer than 5 papers meet criteria, return ALL papers that meet criteria.\n"
+        "4. Do NOT include any paper that fails any constraint.\n"
+        "5. DO NOT DROP PAPERS - return all valid papers you get from the tool.\n"
+        "\n"
+        "PARAMETERS you may use: topic, year_filter, year, min_citations.\n"
+        "\n"
+        "After filtering, output STRICT JSON only (no markdown, no extra text):\n"
         "{\n"
-        "  \"papers\": [\n"
-        "    {\"title\": \"...\", \"authors\": [...], \"year\": 2023, \"citation_count\": 123, \"url\": \"...\"}\n"
-        "  ],\n"
-        "  \"summary\": \"short summary (max 6 sentences)\"\n"
+        "  'papers': [...],\n"
+        "  'summary': 'Found X papers meeting all constraints. Summary: ...'\n"
         "}\n"
-        "Then on a new line output the literal string TERMINATE."
+        "Then output TERMINATE on a new line."
     )
 
     agent = ConversableAgent(
@@ -28,7 +35,7 @@ def create_research_agent():
 
     agent.register_for_llm(
         name="search_papers",
-        description="Search for research papers. Parameters: topic, year_filter, year, citation_filter, citation_count"
+        description="Search for papers. Parameters: topic, year_filter, year."
     )(search_papers)
 
     return agent

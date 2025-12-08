@@ -1,17 +1,19 @@
 from autogen import ConversableAgent
-
 from config import LLM_CONFIG
-
 
 def create_evaluator_agent():
     system_msg = (
-        "You are a strict evaluator. INPUT: TASK (text) and AGENT RESULT (either JSON or text).\n"
-        "INSTRUCTIONS:\n"
-        "- Check ONLY explicit constraints in TASK. Do NOT invent hidden constraints.\n"
-        "- Example: 'published after 2017' means year >= 2018 counts.\n"
-        "- If TASK contains numeric thresholds, compare them exactly.\n"
-        "- Output ONLY valid JSON: {\"success\": boolean, \"reason\": \"detailed explanation\"}\n"
-        "- Then on a new line output the literal string TERMINATE.\n"
+        "You are a practical evaluator.\n"
+        "RULES:\n"
+        "- Check if papers meet basic constraints: year and citation requirements FROM THE TASK.\n"
+        "- If task says 'citation_count >= 30', check the 'citation_count' field in each paper.\n"
+        "- Allow flexible field names (first_author/top_author are both acceptable).\n"
+        "- Check if summary/analysis is provided and relevant.\n"
+        "- If no papers found, check if agent properly reported 'no results'.\n"
+        "- Output ONLY JSON: {\"success\": boolean, \"reason\": \"...\"}.\n"
+        "- After JSON, output the exact string: TERMINATE on a new line.\n"
+        "- Be reasonable - real APIs may return limited results.\n"
+        "- Do NOT provide any extra explanation or text."
     )
 
     return ConversableAgent(

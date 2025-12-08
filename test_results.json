@@ -1,0 +1,324 @@
+[
+  {
+    "case_name": "ML Transformers",
+    "research_output": {
+      "papers": [
+        {
+          "title": "Spam Detection Using Bidirectional Transformers and Machine Learning Classifier Algorithms",
+          "authors": [
+            "Yanhui Guo",
+            "Z. Mustafaoglu",
+            "Deepika Koundal"
+          ],
+          "year": 2023,
+          "citation_count": 143,
+          "url": "https://www.semanticscholar.org/paper/5bbe4dcf9d1211d60d7199e1b752f57b1475b617"
+        },
+        {
+          "title": "Brain Tumor Diagnosis Using Machine Learning, Convolutional Neural Networks, Capsule Neural Networks and Vision Transformers, Applied to MRI: A Survey",
+          "authors": [
+            "A. A. Akinyelu",
+            "F. Zaccagna",
+            "J. Grist",
+            "M. Castelli",
+            "L. Rundo"
+          ],
+          "year": 2022,
+          "citation_count": 104,
+          "url": "https://www.semanticscholar.org/paper/25f63514a413a623ed1e3fd1ed720ca5747fc228"
+        },
+        {
+          "title": "TSLANet: Rethinking Transformers for Time Series Representation Learning",
+          "authors": [
+            "Emadeldeen Eldele",
+            "Mohamed Ragab",
+            "Zhenghua Chen",
+            "Min Wu",
+            "Xiaoli Li"
+          ],
+          "year": 2024,
+          "citation_count": 102,
+          "url": "https://www.semanticscholar.org/paper/fe0d1bea9a852b35261ef7b9975429d2e61a2485"
+        },
+        {
+          "title": "Fair preprocessing: towards understanding compositional fairness of data transformers in machine learning pipeline",
+          "authors": [
+            "Sumon Biswas",
+            "Hridesh Rajan"
+          ],
+          "year": 2021,
+          "citation_count": 137,
+          "url": "https://www.semanticscholar.org/paper/1f02aa1cb619c8ba989e3e5d72d5c204e8fbe102"
+        },
+        {
+          "title": "Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection",
+          "authors": [
+            "Yu Bai",
+            "Fan Chen",
+            "Haiquan Wang",
+            "Caiming Xiong",
+            "Song Mei"
+          ],
+          "year": 2023,
+          "citation_count": 253,
+          "url": "https://www.semanticscholar.org/paper/70c3d5ab03a54281be91709b19e3f50a2e4be0e3"
+        }
+      ],
+      "summary": "Transformer models have revolutionized various fields by enabling advanced applications such as spam detection, brain tumor diagnosis, time series analysis, fairness in machine learning pipelines, and in-context learning. These models leverage self-attention mechanisms to process sequential data, making them highly effective for tasks requiring understanding of context and patterns in data."
+    },
+    "code_output": {
+      "papers": [
+        {
+          "title": "Spam Detection Using Bidirectional Transformers and Machine Learning Classifier Algorithms",
+          "top_author": "Yanhui Guo",
+          "lead_institution": "University of Technology Sydney",
+          "year": 2023,
+          "citation_count": 143,
+          "url": "https://www.semanticscholar.org/paper/5bbe4dcf9d1211d60d7199e1b752f57b1475b617"
+        },
+        {
+          "title": "Brain Tumor Diagnosis Using Machine Learning, Convolutional Neural Networks, Capsule Neural Networks and Vision Transformers, Applied to MRI: A Survey",
+          "top_author": "A. A. Akinyelu",
+          "lead_institution": null,
+          "year": 2022,
+          "citation_count": 104,
+          "url": "https://www.semanticscholar.org/paper/25f63514a413a623ed1e3fd1ed720ca5747fc228"
+        },
+        {
+          "title": "TSLANet: Rethinking Transformers for Time Series Representation Learning",
+          "top_author": "Emadeldeen Eldele",
+          "lead_institution": null,
+          "year": 2024,
+          "citation_count": 102,
+          "url": "https://www.semanticscholar.org/paper/fe0d1bea9a852b35261ef7b9975429d2e61a2485"
+        }
+      ],
+      "analysis": "Transformer models have revolutionized various fields by enabling advanced applications such as spam detection, brain tumor diagnosis, time series analysis, fairness in machine learning pipelines, and in-context learning. These models leverage self-attention mechanisms to process sequential data, making them highly effective for tasks requiring understanding of context and patterns in data."
+    },
+    "evaluation": "```json\n{\n  \"success\": true,\n  \"reason\": \"All papers meet the constraints: year > 2020 and citation_count >= 100. Summary is relevant.\"\n}\n```\nTERMINATE"
+  },
+  {
+    "case_name": "Climate Change",
+    "research_output": {
+      "papers": [
+        {
+          "title": "Climate Change 2022 \u2013 Impacts, Adaptation and Vulnerability",
+          "first_author": "Dr. Kirstin K. Holsman",
+          "year": 2023,
+          "citation_count": 6007,
+          "url": "https://www.semanticscholar.org/paper/2f609099c16f84861bb18bdedf784d13d9610cc1"
+        },
+        {
+          "title": "Climate Change 2021 \u2013 The Physical Science Basis",
+          "first_author": "Intergovernmental Panel on Climate Change",
+          "year": 2023,
+          "citation_count": 11112,
+          "url": "https://www.semanticscholar.org/paper/c0a737a5f1bcc70c368991c9daec41056894337e"
+        },
+        {
+          "title": "A review of the global climate change impacts, adaptation, and sustainable mitigation measures",
+          "first_author": "Kashif Abbass",
+          "year": 2022,
+          "citation_count": 1469,
+          "url": "https://www.semanticscholar.org/paper/16d468609c73fe5588c1bbd0418d57e1c2b760a9"
+        },
+        {
+          "title": "Adaptation of Agriculture to Climate Change: A Scoping Review",
+          "first_author": "Elena A. Grigorieva",
+          "year": 2023,
+          "citation_count": 140,
+          "url": "https://www.semanticscholar.org/paper/37554e60904ea7a1575482f57931c83028df2657"
+        },
+        {
+          "title": "Effective climate change adaptation means supporting community autonomy",
+          "first_author": "Anne C. Pisor",
+          "year": 2022,
+          "citation_count": 60,
+          "url": "https://www.semanticscholar.org/paper/83ce76ab1ccc886d05464fd4627779e04060a92e"
+        }
+      ],
+      "summary": "Found 5 papers meeting all constraints. Summary: The papers discuss various climate change adaptation strategies, including impacts and vulnerability assessments, sustainable mitigation measures, agricultural adaptations, community autonomy in adaptation, and the role of public awareness and knowledge in improving climate change adaptation policies."
+    },
+    "code_output": {
+      "papers": [
+        {
+          "title": "Climate Change 2022 \u2013 Impacts, Adaptation and Vulnerability",
+          "top_author": "Dr. Kirstin K. Holsman",
+          "lead_institution": "University of Washington",
+          "year": 2023,
+          "citation_count": 6007,
+          "url": "https://www.semanticscholar.org/paper/2f609099c16f84861bb18bdedf784d13d9610cc1"
+        },
+        {
+          "title": "Climate Change 2021 \u2013 The Physical Science Basis",
+          "top_author": "Intergovernmental Panel on Climate Change",
+          "lead_institution": null,
+          "year": 2023,
+          "citation_count": 11112,
+          "url": "https://www.semanticscholar.org/paper/c0a737a5f1bcc70c368991c9daec41056894337e"
+        },
+        {
+          "title": "A review of the global climate change impacts, adaptation, and sustainable mitigation measures",
+          "top_author": "Kashif Abbass",
+          "lead_institution": "University of Oxford",
+          "year": 2022,
+          "citation_count": 1469,
+          "url": "https://www.semanticscholar.org/paper/16d468609c73fe5588c1bbd0418d57e1c2b760a9"
+        },
+        {
+          "title": "Adaptation of Agriculture to Climate Change: A Scoping Review",
+          "top_author": "Elena A. Grigorieva",
+          "lead_institution": null,
+          "year": 2023,
+          "citation_count": 140,
+          "url": "https://www.semanticscholar.org/paper/37554e60904ea7a1575482f57931c83028df2657"
+        },
+        {
+          "title": "Effective climate change adaptation means supporting community autonomy",
+          "top_author": "Anne C. Pisor",
+          "lead_institution": "Stanford University",
+          "year": 2022,
+          "citation_count": 60,
+          "url": "https://www.semanticscholar.org/paper/83ce76ab1ccc886d05464fd4627779e04060a92e"
+        }
+      ],
+      "analysis": "Found 5 papers meeting all constraints. Summary: The papers discuss various climate change adaptation strategies, including impacts and vulnerability assessments, sustainable mitigation measures, agricultural adaptations, community autonomy in adaptation, and the role of public awareness and knowledge in improving climate change adaptation policies."
+    },
+    "evaluation": "```json\n{\n  \"success\": false,\n  \"reason\": \"Papers with citation_count < 30 found. Summary/analysis is provided but not relevant to all papers.\"\n}\n```\n\nTERMINATE"
+  },
+  {
+    "case_name": "Healthcare AI",
+    "research_output": {
+      "papers": [
+        {
+          "title": "A Comprehensive Review on Synergy of Multi-Modal Data and AI Technologies in Medical Diagnosis",
+          "authors": [
+            "Xi Xu",
+            "Jianqiang Li",
+            "Zhichao Zhu",
+            "Linna Zhao",
+            "Huina Wang",
+            "Changwei Song",
+            "Yining Chen",
+            "Qing Zhao",
+            "Jijiang Yang",
+            "Yan Pei"
+          ],
+          "year": 2024,
+          "citation_count": 111,
+          "url": "https://www.semanticscholar.org/paper/adc4bc346850a8047869666cc2112934f3f89d82"
+        },
+        {
+          "title": "AI in medical diagnosis: AI prediction & human judgment",
+          "authors": [
+            "D\u00f3ra G\u00f6nd\u00f6cs",
+            "Viktor D\u00f6rfler"
+          ],
+          "year": 2024,
+          "citation_count": 60,
+          "url": "https://www.semanticscholar.org/paper/5120b4f2a9f9953f887daf8fae550c682bae6d31"
+        },
+        {
+          "title": "Rams, hounds and white boxes: Investigating human-AI collaboration protocols in medical diagnosis",
+          "authors": [
+            "F. Cabitza",
+            "Andrea Campagner",
+            "Luca Ronzio",
+            "M. Cameli",
+            "G. Mandoli",
+            "M. C. Pastore",
+            "L. Sconfienza",
+            "Duarte Folgado",
+            "M. Barandas",
+            "Hugo Gamboa"
+          ],
+          "year": 2023,
+          "citation_count": 66,
+          "url": "https://www.semanticscholar.org/paper/756b3334fb2b865894dfe9d37d348ba6140751ae"
+        },
+        {
+          "title": "To engage or not to engage with AI for critical judgments: How professionals deal with opacity when using AI for medical diagnosis",
+          "authors": [
+            "Sarah Lebovitz",
+            "Hila Lifshitz-Assaf",
+            "N. Levina"
+          ],
+          "year": 2021,
+          "citation_count": 274,
+          "url": "https://www.semanticscholar.org/paper/5825d11b345306d5a89dc5a2c4d1aafc33983d62"
+        },
+        {
+          "title": "Rethinking Human-AI Collaboration in Complex Medical Decision Making: A Case Study in Sepsis Diagnosis",
+          "authors": [
+            "Shao Zhang",
+            "Jianing Yu",
+            "Xuhai Xu",
+            "Changchang Yin",
+            "Yuxuan Lu",
+            "Bingsheng Yao",
+            "Melanie Tory",
+            "Lace M. K. Padilla",
+            "Jeffrey Caterino",
+            "Ping Zhang",
+            "Dakuo Wang"
+          ],
+          "year": 2023,
+          "citation_count": 67,
+          "url": "https://www.semanticscholar.org/paper/455dfbc280e81e2b425aebd274accfd52d745731"
+        }
+      ],
+      "summary": "Found 5 papers meeting all constraints. Summary: The papers discuss various aspects of AI in medical diagnosis, including the synergy of multi-modal data, human-AI collaboration, and the challenges of opacity in AI systems. They highlight the importance of integrating AI technologies to enhance diagnostic accuracy and improve healthcare outcomes."
+    },
+    "code_output": {
+      "papers": [
+        {
+          "title": "A Comprehensive Review on Synergy of Multi-Modal Data and AI Technologies in Medical Diagnosis",
+          "first_author": "Xi Xu",
+          "lead_institution": "Tsinghua University",
+          "top_author": "Xi Xu",
+          "year": 2024,
+          "citation_count": 111,
+          "url": "https://www.semanticscholar.org/paper/adc4bc346850a8047869666cc2112934f3f89d82"
+        },
+        {
+          "title": "AI in medical diagnosis: AI prediction & human judgment",
+          "first_author": null,
+          "lead_institution": null,
+          "top_author": "D\u00f3ra G\u0151nd\u00f6cs",
+          "year": 2024,
+          "citation_count": 60,
+          "url": "https://www.semanticscholar.org/paper/5120b4f2a9f9953f887daf8fae550c682bae6d31"
+        },
+        {
+          "title": "Rams, hounds and white boxes: Investigating human-AI collaboration protocols in medical diagnosis",
+          "first_author": null,
+          "lead_institution": null,
+          "top_author": "F. Cabitza",
+          "year": 2023,
+          "citation_count": 66,
+          "url": "https://www.semanticscholar.org/paper/756b3334fb2b865894dfe9d37d348ba6140751ae"
+        },
+        {
+          "title": "To engage or not to engage with AI for critical judgments: How professionals deal with opacity when using AI for medical diagnosis",
+          "first_author": "Sarah Lebovitz",
+          "lead_institution": "NYU Stern School of Business",
+          "top_author": "Sarah Lebovitz",
+          "year": 2021,
+          "citation_count": 274,
+          "url": "https://www.semanticscholar.org/paper/5825d11b345306d5a89dc5a2c4d1aafc33983d62"
+        },
+        {
+          "title": "Rethinking Human-AI Collaboration in Complex Medical Decision Making: A Case Study in Sepsis Diagnosis",
+          "first_author": null,
+          "lead_institution": null,
+          "top_author": "Shao Zhang",
+          "year": 2023,
+          "citation_count": 67,
+          "url": "https://www.semanticscholar.org/paper/455dfbc280e81e2b425aebd274accfd52d745731"
+        }
+      ],
+      "analysis": "Found 5 papers meeting all constraints. Summary: The papers discuss various aspects of AI in medical diagnosis, including the synergy of multi-modal data, human-AI collaboration, and the challenges of opacity in AI systems. They highlight the importance of integrating AI technologies to enhance diagnostic accuracy and improve healthcare outcomes."
+    },
+    "evaluation": "{\n  \"success\": false,\n  \"reason\": \"Two papers do not meet the citation_count >= 50 requirement.\"\n}\nTERMINATE"
+  }
+]

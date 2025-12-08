@@ -12,3 +12,6 @@ __pycache__/config.cpython-312.pyc
 .idea/misc.xml
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/vcs.xml
+__pycache__/use_cases.cpython-312.pyc
+.cache/42/cache.db-shm
+.cache/42/cache.db-wal
