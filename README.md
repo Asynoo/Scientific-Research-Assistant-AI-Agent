@@ -1,15 +1,39 @@
-# ScientificResearchAssistantAgent
-
-**ScientificResearchAssistant** is a Python project that automates research tasks using AI agents. It can search for research papers, generate analysis code, execute it, and evaluate the results.
+# Scientific Research Assistant Agent
 
 ---
 
 ## Features
 
-* **ResearchAgent**: Finds relevant research papers based on user queries.
-* **CodeAgent**: Generates Python code to process and analyze papers.
-* **EvaluatorAgent**: Validates results against given criteria.
-* **UserProxy**: Executes tools like `search_papers` and `execute_code`.
+### Agents
+1. **Research Agent**
+   - Searches papers using the Semantic Scholar API.
+   
+
+2. **Code Agent**
+   - Generates scripts that transform and process research data.
+   - Ensures output preserves original field names.
+   
+
+3. **Evaluator Agent**
+   - Checks whether the processed papers meet task constraints.
+   - Validates summaries, citation counts, and field consistency.
+   - Returns a JSON evaluation result.
+   
+
+4. **User Proxy / Agent**
+   - Handles execution of code and calls to external tools.
+   - Manages interaction with agents.
+
+---
+
+### Key Functionalities
+- Automated **pipeline** from **paper search** → **code generation** → **execution** → **evaluation**.
+- Strict **JSON-only outputs**.
+- Handles **real-world API constraints** (Semantic Scholar API).
+- Supports multiple **use cases**:
+  - Machine Learning Transformers Research
+  - Climate Change Adaptation Research
+  - AI Medical Diagnosis Research
 
 ---
 
@@ -18,8 +42,7 @@
 Install dependencies:
 
 ```bash
-
-pip install -r requirements.txt
+    pip install -r requirements.txt
 ```
 
 ---
@@ -28,5 +51,4 @@ pip install -r requirements.txt
 Run the main script:
 
 ```bash
-
-python main.py
+    python main.py
