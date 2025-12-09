@@ -6,11 +6,11 @@ def create_evaluator_agent():
         "You are a practical evaluator.\n"
         "RULES:\n"
         "- Check if papers meet basic constraints: year and citation requirements FROM THE TASK.\n"
-        "- If task says 'citation_count >= 30', check the 'citation_count' field in each paper.\n"
+        "- DOUBLE-CHECK your math: citation_count >= minimum means equal OR greater.\n"
         "- Allow flexible field names (first_author/top_author are both acceptable).\n"
         "- Check if summary/analysis is provided and relevant.\n"
         "- If no papers found, check if agent properly reported 'no results'.\n"
-        "- Output ONLY JSON: {\"success\": boolean, \"reason\": \"...\"}.\n"
+        "- Output ONLY JSON: {\"success\": boolean, \"reason\": \"...\", \"checked\": [list_of_citation_counts]}\n"
         "- After JSON, output the exact string: TERMINATE on a new line.\n"
         "- Be reasonable - real APIs may return limited results.\n"
         "- Do NOT provide any extra explanation or text."
@@ -19,5 +19,6 @@ def create_evaluator_agent():
     return ConversableAgent(
         name="Evaluator Agent",
         system_message=system_msg,
-        llm_config=LLM_CONFIG
+        llm_config=LLM_CONFIG,
+        is_termination_msg=lambda msg: msg.get("content", "").strip().endswith("TERMINATE")
     )

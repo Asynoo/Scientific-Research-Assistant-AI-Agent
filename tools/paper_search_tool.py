@@ -13,8 +13,13 @@ class ResearchPaper(TypedDict):
 SEMANTIC_SCHOLAR_SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
 
 
-def search_papers(topic: str, year_filter: str = None, year: int = None,
-                  end_year: int = None, min_citations: int = 0) -> List[ResearchPaper]:
+def search_papers(
+        topic: str,
+        year_filter: str = None,
+        year: int = None,
+        end_year: int = None,
+        min_citations: int = 0
+) -> List[ResearchPaper]:
     params = {
         "query": topic,
         "limit": 30,

@@ -20,17 +20,34 @@ def execute_code(code: str, timeout: int = 8) -> Dict:
 
         stdout = proc.stdout or ""
         stderr = proc.stderr or ""
+
         max_chars = 4000
         if len(stdout) > max_chars:
             stdout = stdout[:max_chars] + "\n...[truncated]"
         if len(stderr) > max_chars:
             stderr = stderr[:max_chars] + "\n...[truncated]"
 
-        return {"success": proc.returncode == 0, "stdout": stdout, "stderr": stderr, "error": None}
+        return {
+            "success": proc.returncode == 0,
+            "stdout": stdout,
+            "stderr": stderr,
+            "error": None
+        }
+
     except subprocess.TimeoutExpired:
-        return {"success": False, "stdout": "", "stderr": "", "error": "timeout"}
+        return {
+            "success": False,
+            "stdout": "",
+            "stderr": "",
+            "error": "timeout"
+        }
     except Exception as e:
-        return {"success": False, "stdout": "", "stderr": "", "error": str(e)}
+        return {
+            "success": False,
+            "stdout": "",
+            "stderr": "",
+            "error": str(e)
+        }
     finally:
         try:
             if tmp_path and os.path.exists(tmp_path):

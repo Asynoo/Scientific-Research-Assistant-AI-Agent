@@ -12,13 +12,13 @@ from use_cases import use_case_1, use_case_2, use_case_3
 
 def create_user_proxy():
     user = ConversableAgent(
-        name="UserProxy",
+        name="User Proxy / Agent",
         llm_config=False,
         human_input_mode="NEVER",
         is_termination_msg=lambda msg: msg.get("content", "").strip().endswith("TERMINATE")
     )
-    user.register_for_execution("execute_code")(execute_code)
-    user.register_for_execution("search_papers")(search_papers)
+    user.register_for_execution(name="search_papers")(search_papers)
+    user.register_for_execution(name="execute_code")(execute_code)
     return user
 
 
@@ -47,7 +47,7 @@ def extract_json(text):
 
 def run_single_case(case_name, task):
     print(f"\n{'=' * 60}")
-    print(f"RUNNING USE CASE: {case_name}")
+    print(f"RUNNING: {case_name}")
     print(f"{'=' * 60}")
 
     user = create_user_proxy()
@@ -55,44 +55,39 @@ def run_single_case(case_name, task):
     code_agent = create_code_agent()
     evaluator = create_evaluator_agent()
 
-    print("\n--- STEP 1: Research ---")
-    r_out = safe_initiate(user, research, task)
+    print("\n[1] Research")
+    r_out = safe_initiate(user, research, task, max_turns=2)
     print(r_out[:1000] + "..." if len(r_out) > 1000 else r_out)
     r_json = extract_json(r_out)
 
     if not r_json:
-        print("Failed to extract JSON from research agent")
+        print("No JSON from research")
         return None
 
-    print("\n--- STEP 2: Code Execution ---")
+    print("\n[2] Code")
 
     if not r_json.get("papers", []):
-        print("No papers found, skipping code execution")
+        print("No papers, skip code")
         code_json = r_json
     else:
-        code_prompt = "JSON_INPUT:\n" + json.dumps(r_json) + "\nProduce the Python script now."
-        code_reply = safe_initiate(user, code_agent, code_prompt)
+        code_prompt = f"JSON_INPUT:\n{json.dumps(r_json)}\nWrite Python script."
+        code_reply = safe_initiate(user, code_agent, code_prompt, max_turns=1)
 
         script = code_reply.replace("```python", "").replace("```", "").strip()
         exec_out = execute_code(script)
 
         if exec_out.get("success"):
-            print(f"Code executed successfully")
+            print("Code OK")
             code_json = extract_json(exec_out.get("stdout", ""))
             if not code_json:
-                print("Warning: Could not extract JSON from code output")
                 code_json = r_json
         else:
-            print(f"Code execution failed: {exec_out.get('error')}")
+            print(f"Code failed: {exec_out.get('error')}")
             return None
 
-    print("\n--- STEP 3: Evaluation ---")
-    eval_prompt = (
-        f"TASK: {task}\n\n"
-        f"AGENT RESULT: {json.dumps(code_json)}\n\n"
-        "Output JSON only and TERMINATE."
-    )
-    eval_out = safe_initiate(user, evaluator, eval_prompt)
+    print("\n[3] Evaluation")
+    eval_prompt = f"Check these papers against task requirements:\n\nTASK: {task}\n\nPAPERS FOUND:\n{json.dumps(code_json, indent=2)}\n\nDo ALL papers meet the citation and year requirements? Output JSON."
+    eval_out = safe_initiate(user, evaluator, eval_prompt, max_turns= 1)
     print(eval_out)
 
     return {
@@ -106,6 +101,7 @@ def run_single_case(case_name, task):
 def main():
     all_results = []
 
+    # Simply comment/un-comment depending on which cases you wish to run.
     cases = [
         ("ML Transformers", use_case_1()),
         ("Climate Change", use_case_2()),
@@ -121,8 +117,8 @@ def main():
         json.dump(all_results, f, indent=2)
 
     print(f"\n{'=' * 60}")
-    print(f"COMPLETED {len(all_results)}/{len(cases)} USE CASES")
-    print(f"Results saved to test_results.json")
+    print(f"DONE: {len(all_results)}/{len(cases)}")
+    print(f"Saved to test_results.json")
 
     for result in all_results:
         eval_json = extract_json(result["evaluation"])
