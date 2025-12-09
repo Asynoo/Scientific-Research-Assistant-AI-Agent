@@ -21,7 +21,7 @@ def use_case_2():
     Find research papers on "climate change adaptation" with constraints:
     1. Published after 2020 (year > 2020)
     2. Each paper must have >= 30 citations
-    3. Include metadata: title, first author, year, citation_count, and URL
+    3. Include metadata: title, authors, year, citation_count, and URL
     4. Try to find at least 3 papers
     5. Provide summary of climate solutions discussed
     6. Return STRICTLY in JSON format as:
